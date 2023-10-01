@@ -1,38 +1,28 @@
-# django-todo
-A simple todo app built with django
+# Django-todo
+A simple todo app built with Django is used in this CI/CD project
 
-![todo App](https://raw.githubusercontent.com/shreys7/django-todo/develop/staticfiles/todoApp.png)
-### Setup
-To get this repository, run the following command inside your git enabled terminal
-```bash
-$ git clone https://github.com/shreys7/django-todo.git
-```
-You will need django to be installed in you computer to run this app. Head over to https://www.djangoproject.com/download/ for the download guide
+Pre-requisites for this project are
+1. Pre-built app
+2. AWS EC2 instance with docker and Jenkins installed
+   
+The steps to do app deployment through CI/CD are
+1. DockerFile should be created with the specific commands.  #present in my repo uploaded
+  ![image](https://github.com/hijackhim/todo-cicd-app/assets/105789918/589f6b75-312a-4a9a-9287-a13651fbe896)
+2. GitHub should be integrated with Jenkins by using the "git server" plugin.
+3. Github token is recommended for authentication purposes in Jenkins
+4. for Jenkins to use your GitHub account setting should be like this
+ ![image](https://github.com/hijackhim/todo-cicd-app/assets/105789918/34714b55-0db4-42b1-a4d1-a9993df4228f)
+5. Under build step in the setting on the same page as above commands.
+   ![image](https://github.com/hijackhim/todo-cicd-app/assets/105789918/1972b494-3c70-4d66-b57a-0dccf1f1b3f9)
+6. The above command will use DockerFile(created in the initial steps) to automate our tasks.
+7. While building the Jenkins pipeline, console output will look like this
+   ![image](https://github.com/hijackhim/todo-cicd-app/assets/105789918/c768d997-2008-4a99-9e9a-75db3d81b83d)
+8. after successful build, you will be able to access the app in your browser with your VM or Cloud public IP and port for example-http://54.173.216.194:8000/
+   ![image](https://github.com/hijackhim/todo-cicd-app/assets/105789918/e26fa739-7415-4676-b888-60a98ac04436)
 
-Once you have downloaded django, go to the cloned repo directory and run the following command
 
-```bash
-$ python manage.py makemigrations
-```
+That's it thanks for reading
 
-This will create all the migrations file (database migrations) required to run this App.
 
-Now, to apply this migrations run the following command
-```bash
-$ python manage.py migrate
-```
+  
 
-One last step and then our todo App will be live. We need to create an admin user to run this App. On the terminal, type the following command and provide username, password and email for the admin user
-```bash
-$ python manage.py createsuperuser
-```
-
-That was pretty simple, right? Now let's make the App live. We just need to start the server now and then we can start using our simple todo App. Start the server by following command
-
-```bash
-$ python manage.py runserver
-```
-
-Once the server is hosted, head over to http://127.0.0.1:8000/todos for the App.
-
-Cheers and Happy Coding :)
